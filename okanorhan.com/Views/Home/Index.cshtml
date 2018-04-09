@@ -1,0 +1,193 @@
+﻿@model okanorhan.com.Models.HomePageView
+@{
+    ViewBag.Title = "Okan ORHAN";
+    int i = 0;
+}
+
+
+<div class="maincontainer">
+
+    <div>
+        <img src="~/Image/NavbarBackImage.jpg" style="width:100%;height:400px;" />
+    </div>
+    <div>
+
+        <div class="navbar">
+            <div class="">
+
+                <ul class="">
+                    <li><a class="hvr-underline-from-left" href="#Hakkimda">Hakkımda</a></li>
+                    <li><a class="hvr-underline-from-left" href="#Yeteneklerim">Yeteneklerim</a></li>
+                    <li><a class="hvr-underline-from-left" href="#IsDeneyimi">İş Deneyimlerim</a></li>
+                    <li><a class="hvr-underline-from-left" href="../Home/Blog">Blog</a></li>
+                    <li><a class="hvr-underline-from-left" href="#Iletisim">İletişim</a></li>
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div id="Hakkimda" style="width: 70%;margin: auto;  position: relative;bottom: 300px;text-align:center">
+            <p><b style="color:#3D4451;font-size:30px;position: relative;bottom: -75px;">Hakkımda</b></p>
+
+        </div>
+        <div class="kutu">
+            <div class="kutusol">
+                <img src="~/Image/FB_IMG_1515139494106.jpg" style="margin:auto;width:350px;height:370px;margin-left:35px;margin-top:40px;" />
+            </div>
+            <div class="kutusag">
+                <div style="margin-top: 40px;">
+                    <div style="background-color:#07CB79;width: 11%;padding: 12px;padding-right: 18px;"><span style="color:white;">Merhaba</span></div>
+                    <div class="Merhaba"></div>
+                    <h1 style="color: #3d4451;"><span style="color: #3d4451;font-weight: normal;">Ben</span> Okan ORHAN</h1>
+                    <h2 style="color: #3d4451;font-weight: normal;">Bilgisayar Mühendisiyim</h2>
+                </div>
+                <hr style="width:90%;margin-left:0%;" />
+                <ul class="sagicerik">
+                    <li>
+                        <strong class="">Yaş</strong>
+                        <span>24</span>
+                    </li>
+                    <li>
+                        <strong>Adres</strong>
+                        <span style="margin-left:113px">Fatih/İstanbul Türkiye</span>
+                    </li>
+                    <li>
+                        <strong>E-mail</strong>
+                        <span style="margin-left:108px">info@okanorhan.com</span>
+                    </li>
+                    <li class="clearfix">
+                        <strong>Telefon</strong>
+                        <span style="margin-left:100px">+90 537 898 91 28</span>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+        <div class="kutualt">
+            <div style="margin:auto;width:30%">
+                <a href="https://tr.linkedin.com/in/okanorhan" class="fa fa-linkedin fa-2x"></a>
+                <a href="#" class="fa fa-google fa-2x"></a>
+                <a href="#" class="fa fa-facebook fa-2x"></a>
+                <a href="#" class="fa fa-twitter fa-2x"></a>
+                <a href="#" class="fa fa-instagram fa-2x"></a>
+
+
+            </div>
+        </div>
+
+    </div>
+    <div>
+        <div id="Yeteneklerim" style="width: 70%;margin: auto;  position: relative;bottom: 250px;text-align:center">
+            <p><b style="color:#3D4451;font-size:30px;bottom: -77px;position: relative;">Yeteneklerim</b></p>
+
+        </div>
+        <div class="yeteneklerim">
+     
+            @foreach (var item in Model.Yetenekelerim)
+
+
+            {
+                <div class="yeteneklerimkutu">
+                    <p>@item.Yetenek</p>
+                    <div class="yeteneklerimbar">
+                        <div style="width:@item.YetenekYuzde%;background-color: #0f9e5e;">
+                            @item.YetenekYuzde % 
+
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+    <div id="IsDeneyimi" style="width: 70%;margin: auto;  position: relative;bottom: 150px;text-align:center">
+        <p><b style="color:#3D4451;font-size:30px;position: relative;bottom: -75px;">İş Deneyimlerim</b></p>
+
+    </div>
+    <div class="zaman">
+        
+        @foreach (var item in Model.Kariyer)
+
+         {
+
+            if (i %2 == 0)
+            {
+               <div class="deneyimkutu left">           
+                    <div class="content">
+                        @Html.Raw(item.IcerikTr)            
+                    </div>               
+                </div>
+            }
+
+            if (i%2 == 1)
+            {              
+                <div class="deneyimkutu right">          
+                    <div class="content">
+                        @Html.Raw(item.IcerikTr)                 
+                    </div>              
+                </div>
+            }
+            i++;
+
+         }
+
+    </div>
+
+    <div id="Iletisim" style="width: 70%;margin: auto;  position: relative;text-align:center">
+        <p><b style="color:#3D4451;font-size:30px;    position: relative;bottom: -80px;">İletişim</b></p>
+
+    </div>
+    <div class="iletisim">
+        <div class="MesajContainer">
+            <form>
+                <p>Benimle iletişime geçmekten çekinmeyin</p>
+                <input type="text" id="Name" name="Ad" placeholder="Adınız...">
+
+                <input type="text" id="LastName" name="Soyad" placeholder="Soyadınız..">
+
+                <input type="text" id="Mail" name="Eposta" placeholder="E- Mail..">
+
+
+                <textarea id="subject" name="Mesaj" placeholder="Mesajınızı Yazınız.." style="height:200px"></textarea>
+
+                <input type="submit" value="Gönder">
+            </form>
+        </div>
+        <div class="MesajContainer">
+            <ul>
+                <li>
+                    <strong>Adres:</strong>
+                    <span>Fatih/İstanbul</span>
+                </li>
+                <li>
+                    <strong>Telefon:</strong>
+                    <span>+90 537 898 91 28</span>
+                </li>
+                <li>
+                    <strong>E-mail:</strong>
+                    <span>info@okanorhan.com</span>
+                </li>
+            </ul>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24084.02105667636!2d28.93611189990418!3d41.01425817519958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab989e5fae399%3A0x34f0847eed8b22e0!2zRmF0aWgvxLBzdGFuYnVs!5e0!3m2!1str!2str!4v1515137673679" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+
+        <div style="width:35%;margin:auto;    ">
+            <div style="margin:auto;width100%;">
+                <a href="#" style="background:none !important;color:#D7D7D7!important;" class="fa fa-linkedin"></a>
+                <a href="#" style="background:none !important;color:#D7D7D7!important;" class="fa fa-google"></a>
+                <a href="#" style="background:none !important;color:#D7D7D7!important;" class="fa fa-facebook"></a>
+                <a href="#" style="background:none !important;color:#D7D7D7!important;" class="fa fa-twitter"></a>
+                <a href="#" style="background:none !important;color:#D7D7D7!important;" class="fa fa-instagram"></a>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+</div>

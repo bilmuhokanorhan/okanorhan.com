@@ -1,0 +1,201 @@
+﻿@model IEnumerable<okanorhancomAdmin.AdminWebServis.Dosyalar>
+
+@{
+    ViewBag.Title = "Dosyalar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/lightbox/src/css/lightbox.css" rel="stylesheet" />
+<script src="~/lightbox/src/js/lightbox.js"></script>
+
+
+<style>
+    /* layout.css Style */
+    .upload-drop-zone {
+        height: 200px;
+        border-width: 2px;
+        margin-bottom: 20px;
+    }
+
+    /* skin.css Style*/
+    .upload-drop-zone {
+        color: #ccc;
+        border-style: dashed;
+        border-color: #ccc;
+        line-height: 200px;
+        text-align: center
+    }
+
+        .upload-drop-zone.drop {
+            color: #222;
+            border-color: #222;
+        }
+
+
+
+    .file-preview-input {
+        position: relative;
+        overflow: hidden;
+        margin: 0px;
+        color: #333;
+        background-color: #fff;
+        border-color: #ccc;
+    }
+
+        .file-preview-input input[type=file] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+
+    .file-preview-input-title {
+        margin-left: 2px;
+    }
+</style>
+<br />
+<form id="FileAdd">
+    <div class="container">
+        <br />
+        <div class="row">
+            <div class="col-md-10">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><strong>Dosya Yükle</strong> <small> </small></div>
+                    <div class="panel-body">
+                        <div class="input-group file-preview">
+                            <input placeholder="" type="text" class="form-control file-preview-filename" disabled="disabled">
+                            <!-- don't give a name === doesn't send on POST/GET -->
+                            <span class="input-group-btn">
+                                <!-- file-preview-clear button -->
+                                <button type="button" class="btn btn-default file-preview-clear" style="display:none;"> <span class="glyphicon glyphicon-remove"></span> Clear </button>
+                                <!-- file-preview-input -->
+                                <div class="btn btn-default file-preview-input">
+                                    <span class="glyphicon glyphicon-folder-open"></span> <span class="file-preview-input-title">Dosya Seç</span>
+                                    <input type="file" accept="text/cfg" id="Dosya" name="Dosya" />
+                                    <!-- rename it -->
+                                </div>
+                                <button onclick="FileUpload();" type="submit" class="btn btn-labeled btn-primary"> <span class="btn-label"><i class="glyphicon glyphicon-upload"></i> </span>Yükle</button>
+                            </span>
+                        </div>
+                        <!-- /input-group image-preview [TO HERE]-->
+
+                        <br />
+
+                        <!-- Drop Zone -->
+                        @if (ViewBag.YuklemeDurumu != null)
+                        {<div class="alert alert-info">
+                            <strong>@ViewBag.YuklemeDurumu</strong>
+                        </div> }
+
+                        @if (ViewBag.YuklemeDurumuHata != null)
+                        {<div class="alert alert-danger">
+                            <strong>@ViewBag.YuklemeDurumuHata</strong>
+                        </div> }
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" style="font-size:20px;">
+                                        Dosya Listesi
+                                    </div>
+                                    <!-- /.panel-heading -->
+                                    <div class="panel-body">
+                                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                            <thead>
+                                                <tr style="font-size:16px;font-weight: bold;">
+
+                                                    <th>Dosya Yolu</th>
+                                                    <th>Resim</th>
+                                                    <th style="width:1%"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                @foreach (var item in Model)
+                                                {
+                                                    <tr>
+                                                        <td>
+                                                            @item.DosyaPath
+                                                        </td>
+                                                        <td align="center">
+                                                            <a  href="@item.DosyaPath" data-lightbox="image-1" data-title="Resimler">
+                                                                <img width="30" height="30" src="@item.DosyaPath" />
+                                                            </a>
+
+
+                                                        </td>
+                                                        <td>
+                                                            @Html.ActionLink("Sil", "DosyaDelete", new { DosyaID = item.DosyaID }, new { @class = "btn btn-danger" })
+                                                        </td>
+                                                    </tr>
+
+
+                                                }
+                                            </tbody>
+                                        </table>
+                                        <!-- /.table-responsive -->
+
+                                    </div>
+                                    <!-- /.panel-body -->
+                                </div>
+                                <!-- /.panel -->
+                            </div>
+                            <!-- /.col-lg-12 -->
+                        </div>
+
+
+
+
+                        <br />
+                        <!-- Progress Bar -->
+
+                        <br />
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</form>
+<script>
+    $(document).ready(function () {
+        var i = 1;
+        $("#add_row").click(function () {
+            $('#addr' + i).html("</td><td><input name='input-file-preview" + i + "' type='file' class='form-control input-md'/></td>");
+
+            $('#tab_logic').append('<tr id="addr' + (i + 1) + '"></tr>');
+            i++;
+        });
+        $("#delete_row").click(function () {
+            if (i > 1) {
+                $("#addr" + (i - 1)).html('');
+                i--;
+            }
+        });
+
+    });
+</script>
+<script>
+    function FileUpload() {
+        var formDATA = new FormData(document.getElementById('FileAdd'));
+        $.ajax({
+            url: '/Admin/FileUploadAjax',
+            type: "POST",
+            dataType: "json",
+            processData: false,
+            contentType: false,
+            data: formDATA,
+            success: function (data) {
+                alert(data);
+                window.location.reload();
+            }
+        });
+    }
+</script>

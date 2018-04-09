@@ -1,0 +1,177 @@
+﻿
+@{
+    ViewBag.Title = "MakaleCreate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <form id="deneme" method="post" action="../Admin/MakaleCreate" enctype="multipart/form-data" >
+                <div class="form-group" >
+                    <div class="form-group">
+                        <label>Makale Kısa İçerik Tr</label>
+                        <input class="form-control" placeholder="Kariyer Başlığı Giriniz" id="KisaIcerikTr" name="KisaIcerikTr" required="required">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Makale Kısa İçerik En</label>
+                        <input class="form-control" placeholder="Kariyer Başlığı Giriniz" id="KisaIcerikEn" name="KisaIcerikEn" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label>Route Tr</label>
+                        <input class="form-control" placeholder="Route Tr" id="RouteTr" name="RouteTr" required="required">
+                    </div>
+                   
+                </div>
+
+                <div class="box box-info">
+                    <div class="box-header">
+                        <h3 class="box-title">
+                            İçerik Tr Editor
+
+                        </h3>
+                        <!-- tools box -->
+                        <div class="pull-right box-tools">
+                            <button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip"
+                                    title="Kapat">
+                                <i class="fa fa-minus"></i>
+                            </button>
+
+                        </div>
+                        <!-- /. tools -->
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body pad">
+                        <textarea id="editor1"  name="IcerikTr" rows="10" cols="80">
+                            İçerik Tr Editor...
+
+                    </textarea>
+                    </div>
+                </div>
+                <!-- /.box -->
+                <div class="box box-info">
+                    <div class="box-header">
+                        <h3 class="box-title">
+                            İçerik En Editor
+                        </h3>
+                        <!-- tools box -->
+                        <div class="pull-right box-tools">
+                            <button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip"
+                                    title="Kapat">
+                                <i class="fa fa-minus"></i>
+                            </button>
+
+                        </div>
+                        <!-- /. tools -->
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body pad">
+
+                        <textarea id="editor2" name="IcerikEn" rows="10" cols="80">
+                               İçerik En Editor...
+                    </textarea>
+
+                    </div>
+                </div>
+                <label>Yayın  Durumu</label>
+                <select class="form-control select2 b" id="Aktif" name="Aktif" style="width: 100%;">
+                    <option value="1" selected="selected">True</option>
+                    <option value="0">False</option>
+
+                </select>
+                <br />
+                <div class="form-group">
+                    <label>Makale Sıra No</label>
+                    <select class="form-control select2 select2-hidden-accessible a" id="MakaleSiraNo" name="MakaleYayinSira" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                        <option value="1" selected="selected">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                    </select>
+                </div>
+
+
+                <label>Resim </label>
+                <input type="file" name="Image"  id="Image"/>
+               
+                <br />
+                    <input  style="float:right;" type="submit"  class="btn btn-primary" value="Ekle" />
+                    
+                
+            </form>
+        </div>
+        <!-- /.col-->
+    </div>
+    <!-- ./row -->
+</section>
+@*<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+
+<script type="text/javascript">
+
+    $(function () {
+        CKEDITOR.replace('IcerikTr')
+        CKEDITOR.replace('IcerikEn')
+    })
+    function MakaleAjax() {
+        AjaxBlog = new Object();
+        AjaxBlog.KisaIcerikTr = $('#KisaIcerikTr').val();
+        AjaxBlog.KisaIcerikEn = $('#KisaIcerikEn').val();
+        AjaxBlog.Aktif =$('#Aktif').val();
+        AjaxBlog.MakaleYayinSira = $('#MakaleSiraNo').val();
+        AjaxBlog.Image = $('#Image').val();
+
+       
+        for (var kaydet in CKEDITOR.instances){
+            CKEDITOR.instances['editor1'].updateElement();//CKEditor  bilgileri  aktarıyor.
+            CKEDITOR.instances['editor2'].updateElement();//CKEditor  bilgileri  aktarıyor.
+
+            AjaxBlog.IcerikTr = $('#editor1').val();
+            AjaxBlog.IcerikEn = $('#editor2').val();
+            alert($('#Image').val());
+
+  
+        $.ajax({
+            url: '/Admin/MakaleCreatea',
+            type: "GET",
+            dataType: "json",
+            data: $("#deneme").serialize() , 
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function () {
+
+
+
+
+
+
+            }
+
+        });
+
+        }
+    }
+</script>*@
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: '/Admin/MakaleListJson',
+            type: 'get',
+            dataType: 'json',
+            success: function (data) {
+                $.each(data, function (i, val) {
+                    $(".a option[value*='" + val["MakaleYayinSira"] + "']").prop('disabled', true);
+                });
+
+            }
+        });
+
+
+    });
+</script>

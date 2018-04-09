@@ -1,0 +1,1201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://okanorhan.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://okanorhan.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://okanorhan.com/">
+      <s:element name="YeteneklerimCreate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Yetenek" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="YetenekYuzde" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Aktif" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YeteneklerimCreateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="YeteneklerimCreateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YeteneklerimEdit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="YetenekID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Yetenek" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="YetenekYuzde" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Aktif" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YeteneklerimEditResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="YeteneklerimEditResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YeteneklerimDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="YetenekID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YeteneklerimDeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="YeteneklerimDeleteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YeteneklerimList">
+        <s:complexType />
+      </s:element>
+      <s:element name="YeteneklerimListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="YeteneklerimListResult" type="tns:ArrayOfYeteneklerim" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfYeteneklerim">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Yeteneklerim" nillable="true" type="tns:Yeteneklerim" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Yeteneklerim">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="YetenekID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Yetenek" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="YetenekYuzde" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Aktif" nillable="true" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KariyerCreate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IcerikTr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IcereikEn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BaslikTr" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Aktif" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KariyerCreateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KariyerCreateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KariyerEdit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KariyerID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="IcerikTr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IcerikEn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BaslikTr" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Aktif" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KariyerEditResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KariyerEditResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KariyerDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KariyerID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KariyerDeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KariyerDeleteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KariyerList">
+        <s:complexType />
+      </s:element>
+      <s:element name="KariyerListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KariyerListResult" type="tns:ArrayOfKariyer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfKariyer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Kariyer" nillable="true" type="tns:Kariyer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Kariyer">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="KariyerID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="IcerikTr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IcerikEn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BaslikTr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BaslikEn" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Aktif" nillable="true" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MakaleCreate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KisaIcerikTr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="KisaIcerikEn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IcerikTr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IcerikEn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Image" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Aktif" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="MakaleYayinSira" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="RouteTr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MakaleCreateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MakaleCreateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MakaleEdit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MakaleID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="KisaIcerikTr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="KisaIcerikEn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IcerikTr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IcerikEn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Image" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Aktif" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="MakaleYayinSira" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="RouteTr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MakaleEditResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MakaleEditResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MakaleDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MakaleID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MakaleDeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MakaleDeleteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MakaleList">
+        <s:complexType />
+      </s:element>
+      <s:element name="MakaleListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MakaleListResult" type="tns:ArrayOfMakale" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMakale">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Makale" nillable="true" type="tns:Makale" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Makale">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MakaleID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="KisaIcerikTr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KisaIcerikEn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IcerikTr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IcerikEn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Image" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Tarih" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Aktif" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MakaleYayinSira" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RouteTr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RouteEn" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="YorumCreate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MakaleID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Baslik" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Yorum" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Aktif" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YorumCreateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="YorumCreateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YorumEdit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MakaleID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="YorumID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Baslik" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Yorum" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Aktif" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YorumEditResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="YorumEditResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YorumDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="YorumID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YorumDeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="YorumDeleteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YorumList">
+        <s:complexType />
+      </s:element>
+      <s:element name="YorumListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="YorumListResult" type="tns:ArrayOfYorumlar" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfYorumlar">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Yorumlar" nillable="true" type="tns:Yorumlar" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Yorumlar">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="YorumID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Tarih" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Baslik" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Yorum" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MakaleID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Aktif" nillable="true" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UyeCreate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KullaniciAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Sifre" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Yetki" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Ad" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Soyad" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Aktif" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Image" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Yas" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Adres" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Telefon" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UyeCreateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UyeCreateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UyeEdit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KullaniciAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Sifre" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Yetki" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Ad" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Soyad" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Aktif" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="KayitID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Yas" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Adres" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Telefon" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UyeEditResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UyeEditResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UyeDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KayitID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UyeDeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UyeDeleteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UyeList">
+        <s:complexType />
+      </s:element>
+      <s:element name="UyeListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UyeListResult" type="tns:ArrayOfUye" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUye">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Uye" nillable="true" type="tns:Uye" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Uye">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="KayitID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="KullaniciAdi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sifre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Yetki" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Soyad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Aktif" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Image" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Yas" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Adres" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefon" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DosyaCreate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SavePath" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DosyaCreateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DosyaCreateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DosyaDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DosyaID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DosyaDeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DosyaDeleteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DosyaList">
+        <s:complexType />
+      </s:element>
+      <s:element name="DosyaListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DosyaListResult" type="tns:ArrayOfDosyalar" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDosyalar">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Dosyalar" nillable="true" type="tns:Dosyalar" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Dosyalar">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DosyaID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DosyaPath" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MakaleYorumList">
+        <s:complexType />
+      </s:element>
+      <s:element name="MakaleYorumListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MakaleYorumListResult" type="tns:MakaleYorumView" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MakaleYorumView">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MakaleView" type="tns:ArrayOfMakale" />
+          <s:element minOccurs="0" maxOccurs="1" name="YorumView" type="tns:ArrayOfYorumlar" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MakaleYorumDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MakaleID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MakaleYorumDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MakaleYorumDetailsResult" type="tns:ArrayOfYorumlar" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="YeteneklerimCreateSoapIn">
+    <wsdl:part name="parameters" element="tns:YeteneklerimCreate" />
+  </wsdl:message>
+  <wsdl:message name="YeteneklerimCreateSoapOut">
+    <wsdl:part name="parameters" element="tns:YeteneklerimCreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="YeteneklerimEditSoapIn">
+    <wsdl:part name="parameters" element="tns:YeteneklerimEdit" />
+  </wsdl:message>
+  <wsdl:message name="YeteneklerimEditSoapOut">
+    <wsdl:part name="parameters" element="tns:YeteneklerimEditResponse" />
+  </wsdl:message>
+  <wsdl:message name="YeteneklerimDeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:YeteneklerimDelete" />
+  </wsdl:message>
+  <wsdl:message name="YeteneklerimDeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:YeteneklerimDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="YeteneklerimListSoapIn">
+    <wsdl:part name="parameters" element="tns:YeteneklerimList" />
+  </wsdl:message>
+  <wsdl:message name="YeteneklerimListSoapOut">
+    <wsdl:part name="parameters" element="tns:YeteneklerimListResponse" />
+  </wsdl:message>
+  <wsdl:message name="KariyerCreateSoapIn">
+    <wsdl:part name="parameters" element="tns:KariyerCreate" />
+  </wsdl:message>
+  <wsdl:message name="KariyerCreateSoapOut">
+    <wsdl:part name="parameters" element="tns:KariyerCreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="KariyerEditSoapIn">
+    <wsdl:part name="parameters" element="tns:KariyerEdit" />
+  </wsdl:message>
+  <wsdl:message name="KariyerEditSoapOut">
+    <wsdl:part name="parameters" element="tns:KariyerEditResponse" />
+  </wsdl:message>
+  <wsdl:message name="KariyerDeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:KariyerDelete" />
+  </wsdl:message>
+  <wsdl:message name="KariyerDeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:KariyerDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="KariyerListSoapIn">
+    <wsdl:part name="parameters" element="tns:KariyerList" />
+  </wsdl:message>
+  <wsdl:message name="KariyerListSoapOut">
+    <wsdl:part name="parameters" element="tns:KariyerListResponse" />
+  </wsdl:message>
+  <wsdl:message name="MakaleCreateSoapIn">
+    <wsdl:part name="parameters" element="tns:MakaleCreate" />
+  </wsdl:message>
+  <wsdl:message name="MakaleCreateSoapOut">
+    <wsdl:part name="parameters" element="tns:MakaleCreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="MakaleEditSoapIn">
+    <wsdl:part name="parameters" element="tns:MakaleEdit" />
+  </wsdl:message>
+  <wsdl:message name="MakaleEditSoapOut">
+    <wsdl:part name="parameters" element="tns:MakaleEditResponse" />
+  </wsdl:message>
+  <wsdl:message name="MakaleDeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:MakaleDelete" />
+  </wsdl:message>
+  <wsdl:message name="MakaleDeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:MakaleDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="MakaleListSoapIn">
+    <wsdl:part name="parameters" element="tns:MakaleList" />
+  </wsdl:message>
+  <wsdl:message name="MakaleListSoapOut">
+    <wsdl:part name="parameters" element="tns:MakaleListResponse" />
+  </wsdl:message>
+  <wsdl:message name="YorumCreateSoapIn">
+    <wsdl:part name="parameters" element="tns:YorumCreate" />
+  </wsdl:message>
+  <wsdl:message name="YorumCreateSoapOut">
+    <wsdl:part name="parameters" element="tns:YorumCreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="YorumEditSoapIn">
+    <wsdl:part name="parameters" element="tns:YorumEdit" />
+  </wsdl:message>
+  <wsdl:message name="YorumEditSoapOut">
+    <wsdl:part name="parameters" element="tns:YorumEditResponse" />
+  </wsdl:message>
+  <wsdl:message name="YorumDeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:YorumDelete" />
+  </wsdl:message>
+  <wsdl:message name="YorumDeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:YorumDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="YorumListSoapIn">
+    <wsdl:part name="parameters" element="tns:YorumList" />
+  </wsdl:message>
+  <wsdl:message name="YorumListSoapOut">
+    <wsdl:part name="parameters" element="tns:YorumListResponse" />
+  </wsdl:message>
+  <wsdl:message name="UyeCreateSoapIn">
+    <wsdl:part name="parameters" element="tns:UyeCreate" />
+  </wsdl:message>
+  <wsdl:message name="UyeCreateSoapOut">
+    <wsdl:part name="parameters" element="tns:UyeCreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="UyeEditSoapIn">
+    <wsdl:part name="parameters" element="tns:UyeEdit" />
+  </wsdl:message>
+  <wsdl:message name="UyeEditSoapOut">
+    <wsdl:part name="parameters" element="tns:UyeEditResponse" />
+  </wsdl:message>
+  <wsdl:message name="UyeDeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:UyeDelete" />
+  </wsdl:message>
+  <wsdl:message name="UyeDeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:UyeDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="UyeListSoapIn">
+    <wsdl:part name="parameters" element="tns:UyeList" />
+  </wsdl:message>
+  <wsdl:message name="UyeListSoapOut">
+    <wsdl:part name="parameters" element="tns:UyeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="DosyaCreateSoapIn">
+    <wsdl:part name="parameters" element="tns:DosyaCreate" />
+  </wsdl:message>
+  <wsdl:message name="DosyaCreateSoapOut">
+    <wsdl:part name="parameters" element="tns:DosyaCreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="DosyaDeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:DosyaDelete" />
+  </wsdl:message>
+  <wsdl:message name="DosyaDeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:DosyaDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="DosyaListSoapIn">
+    <wsdl:part name="parameters" element="tns:DosyaList" />
+  </wsdl:message>
+  <wsdl:message name="DosyaListSoapOut">
+    <wsdl:part name="parameters" element="tns:DosyaListResponse" />
+  </wsdl:message>
+  <wsdl:message name="MakaleYorumListSoapIn">
+    <wsdl:part name="parameters" element="tns:MakaleYorumList" />
+  </wsdl:message>
+  <wsdl:message name="MakaleYorumListSoapOut">
+    <wsdl:part name="parameters" element="tns:MakaleYorumListResponse" />
+  </wsdl:message>
+  <wsdl:message name="MakaleYorumDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:MakaleYorumDetails" />
+  </wsdl:message>
+  <wsdl:message name="MakaleYorumDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:MakaleYorumDetailsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceSoap">
+    <wsdl:operation name="YeteneklerimCreate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Yetenek Eklemek için Kullanılacak metod</wsdl:documentation>
+      <wsdl:input message="tns:YeteneklerimCreateSoapIn" />
+      <wsdl:output message="tns:YeteneklerimCreateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YeteneklerimEdit">
+      <wsdl:input message="tns:YeteneklerimEditSoapIn" />
+      <wsdl:output message="tns:YeteneklerimEditSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YeteneklerimDelete">
+      <wsdl:input message="tns:YeteneklerimDeleteSoapIn" />
+      <wsdl:output message="tns:YeteneklerimDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YeteneklerimList">
+      <wsdl:input message="tns:YeteneklerimListSoapIn" />
+      <wsdl:output message="tns:YeteneklerimListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KariyerCreate">
+      <wsdl:input message="tns:KariyerCreateSoapIn" />
+      <wsdl:output message="tns:KariyerCreateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KariyerEdit">
+      <wsdl:input message="tns:KariyerEditSoapIn" />
+      <wsdl:output message="tns:KariyerEditSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KariyerDelete">
+      <wsdl:input message="tns:KariyerDeleteSoapIn" />
+      <wsdl:output message="tns:KariyerDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KariyerList">
+      <wsdl:input message="tns:KariyerListSoapIn" />
+      <wsdl:output message="tns:KariyerListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MakaleCreate">
+      <wsdl:input message="tns:MakaleCreateSoapIn" />
+      <wsdl:output message="tns:MakaleCreateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MakaleEdit">
+      <wsdl:input message="tns:MakaleEditSoapIn" />
+      <wsdl:output message="tns:MakaleEditSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MakaleDelete">
+      <wsdl:input message="tns:MakaleDeleteSoapIn" />
+      <wsdl:output message="tns:MakaleDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MakaleList">
+      <wsdl:input message="tns:MakaleListSoapIn" />
+      <wsdl:output message="tns:MakaleListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YorumCreate">
+      <wsdl:input message="tns:YorumCreateSoapIn" />
+      <wsdl:output message="tns:YorumCreateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YorumEdit">
+      <wsdl:input message="tns:YorumEditSoapIn" />
+      <wsdl:output message="tns:YorumEditSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YorumDelete">
+      <wsdl:input message="tns:YorumDeleteSoapIn" />
+      <wsdl:output message="tns:YorumDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YorumList">
+      <wsdl:input message="tns:YorumListSoapIn" />
+      <wsdl:output message="tns:YorumListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UyeCreate">
+      <wsdl:input message="tns:UyeCreateSoapIn" />
+      <wsdl:output message="tns:UyeCreateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UyeEdit">
+      <wsdl:input message="tns:UyeEditSoapIn" />
+      <wsdl:output message="tns:UyeEditSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UyeDelete">
+      <wsdl:input message="tns:UyeDeleteSoapIn" />
+      <wsdl:output message="tns:UyeDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UyeList">
+      <wsdl:input message="tns:UyeListSoapIn" />
+      <wsdl:output message="tns:UyeListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DosyaCreate">
+      <wsdl:input message="tns:DosyaCreateSoapIn" />
+      <wsdl:output message="tns:DosyaCreateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DosyaDelete">
+      <wsdl:input message="tns:DosyaDeleteSoapIn" />
+      <wsdl:output message="tns:DosyaDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DosyaList">
+      <wsdl:input message="tns:DosyaListSoapIn" />
+      <wsdl:output message="tns:DosyaListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MakaleYorumList">
+      <wsdl:input message="tns:MakaleYorumListSoapIn" />
+      <wsdl:output message="tns:MakaleYorumListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MakaleYorumDetails">
+      <wsdl:input message="tns:MakaleYorumDetailsSoapIn" />
+      <wsdl:output message="tns:MakaleYorumDetailsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceSoap" type="tns:WebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="YeteneklerimCreate">
+      <soap:operation soapAction="http://okanorhan.com/YeteneklerimCreate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YeteneklerimEdit">
+      <soap:operation soapAction="http://okanorhan.com/YeteneklerimEdit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YeteneklerimDelete">
+      <soap:operation soapAction="http://okanorhan.com/YeteneklerimDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YeteneklerimList">
+      <soap:operation soapAction="http://okanorhan.com/YeteneklerimList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KariyerCreate">
+      <soap:operation soapAction="http://okanorhan.com/KariyerCreate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KariyerEdit">
+      <soap:operation soapAction="http://okanorhan.com/KariyerEdit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KariyerDelete">
+      <soap:operation soapAction="http://okanorhan.com/KariyerDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KariyerList">
+      <soap:operation soapAction="http://okanorhan.com/KariyerList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakaleCreate">
+      <soap:operation soapAction="http://okanorhan.com/MakaleCreate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakaleEdit">
+      <soap:operation soapAction="http://okanorhan.com/MakaleEdit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakaleDelete">
+      <soap:operation soapAction="http://okanorhan.com/MakaleDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakaleList">
+      <soap:operation soapAction="http://okanorhan.com/MakaleList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YorumCreate">
+      <soap:operation soapAction="http://okanorhan.com/YorumCreate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YorumEdit">
+      <soap:operation soapAction="http://okanorhan.com/YorumEdit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YorumDelete">
+      <soap:operation soapAction="http://okanorhan.com/YorumDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YorumList">
+      <soap:operation soapAction="http://okanorhan.com/YorumList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UyeCreate">
+      <soap:operation soapAction="http://okanorhan.com/UyeCreate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UyeEdit">
+      <soap:operation soapAction="http://okanorhan.com/UyeEdit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UyeDelete">
+      <soap:operation soapAction="http://okanorhan.com/UyeDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UyeList">
+      <soap:operation soapAction="http://okanorhan.com/UyeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DosyaCreate">
+      <soap:operation soapAction="http://okanorhan.com/DosyaCreate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DosyaDelete">
+      <soap:operation soapAction="http://okanorhan.com/DosyaDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DosyaList">
+      <soap:operation soapAction="http://okanorhan.com/DosyaList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakaleYorumList">
+      <soap:operation soapAction="http://okanorhan.com/MakaleYorumList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakaleYorumDetails">
+      <soap:operation soapAction="http://okanorhan.com/MakaleYorumDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceSoap12" type="tns:WebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="YeteneklerimCreate">
+      <soap12:operation soapAction="http://okanorhan.com/YeteneklerimCreate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YeteneklerimEdit">
+      <soap12:operation soapAction="http://okanorhan.com/YeteneklerimEdit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YeteneklerimDelete">
+      <soap12:operation soapAction="http://okanorhan.com/YeteneklerimDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YeteneklerimList">
+      <soap12:operation soapAction="http://okanorhan.com/YeteneklerimList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KariyerCreate">
+      <soap12:operation soapAction="http://okanorhan.com/KariyerCreate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KariyerEdit">
+      <soap12:operation soapAction="http://okanorhan.com/KariyerEdit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KariyerDelete">
+      <soap12:operation soapAction="http://okanorhan.com/KariyerDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KariyerList">
+      <soap12:operation soapAction="http://okanorhan.com/KariyerList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakaleCreate">
+      <soap12:operation soapAction="http://okanorhan.com/MakaleCreate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakaleEdit">
+      <soap12:operation soapAction="http://okanorhan.com/MakaleEdit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakaleDelete">
+      <soap12:operation soapAction="http://okanorhan.com/MakaleDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakaleList">
+      <soap12:operation soapAction="http://okanorhan.com/MakaleList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YorumCreate">
+      <soap12:operation soapAction="http://okanorhan.com/YorumCreate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YorumEdit">
+      <soap12:operation soapAction="http://okanorhan.com/YorumEdit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YorumDelete">
+      <soap12:operation soapAction="http://okanorhan.com/YorumDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YorumList">
+      <soap12:operation soapAction="http://okanorhan.com/YorumList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UyeCreate">
+      <soap12:operation soapAction="http://okanorhan.com/UyeCreate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UyeEdit">
+      <soap12:operation soapAction="http://okanorhan.com/UyeEdit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UyeDelete">
+      <soap12:operation soapAction="http://okanorhan.com/UyeDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UyeList">
+      <soap12:operation soapAction="http://okanorhan.com/UyeList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DosyaCreate">
+      <soap12:operation soapAction="http://okanorhan.com/DosyaCreate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DosyaDelete">
+      <soap12:operation soapAction="http://okanorhan.com/DosyaDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DosyaList">
+      <soap12:operation soapAction="http://okanorhan.com/DosyaList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakaleYorumList">
+      <soap12:operation soapAction="http://okanorhan.com/MakaleYorumList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakaleYorumDetails">
+      <soap12:operation soapAction="http://okanorhan.com/MakaleYorumDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService">
+    <wsdl:port name="WebServiceSoap" binding="tns:WebServiceSoap">
+      <soap:address location="http://localhost:54621/WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceSoap12" binding="tns:WebServiceSoap12">
+      <soap12:address location="http://localhost:54621/WebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

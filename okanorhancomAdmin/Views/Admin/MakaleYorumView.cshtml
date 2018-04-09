@@ -1,0 +1,127 @@
+﻿@model okanorhancomAdmin.AdminWebServis.MakaleYorumView
+@{
+    ViewBag.Title = "MakaleYorumView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+        
+                <div class="form-group">
+                    <label></label>
+                    <select id="Makale" class="form-control">
+@foreach (var item in Model.MakaleView)
+            {
+
+                        <option value="@item.MakaleID">@item.KisaIcerikTr</option>
+}
+                    </select>
+                </div>
+            <div class="box box-warning direct-chat direct-chat-warning">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Yorum Detay Paneli</h3>
+
+                    <div id="detay" class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="Kapat">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                      
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div  class="box-body">
+                    <!-- Conversations are loaded here -->
+                    <div id="YorumPanel" class="direct-chat-messages">
+                   
+                    
+
+                    </div>
+             
+                </div>
+          
+            </div>
+               
+           
+        </div>
+    </div>
+</section>
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("#Makale").change(function () {
+              var MakaleID = $("#Sil").val();
+            console.log(MakaleID);
+            $.ajax({
+                url: '/Admin/MakaleYorumDetails',
+                type: 'GET',
+                data: { MakaleID: $('#Makale option:selected').val()
+                },
+                success: function (data) {
+                    var html = "";
+                    $.each(data, function (i, item) {
+                        html += "<div class='direct-chat-msg'><div class='direct-chat-info clearfix'><span class='direct-chat-name pull-left'>" +
+                            item.Baslik + "</span>" +
+                            "<span class='direct-chat-timestamp pull-right'>" +
+                            "<a onclick=\"Sil('" + item.YorumID + "')\" href='#' id='Sil' ><i  style='color:sandybrown; margin-left:5px;'class='fa fa-edit fa-2x' aria-hidden='true'></i></a>"
+                            + "</span></div><div class='direct-chat-text'>" + item.Yorum +
+                            "</div></div>";
+                    });
+                    var uzunluk = "<span data-toggle='tooltip' title='' class='badge bg- yellow' data-original-title='Toplam Yorum Sayısı>" + data.length + "</span>";
+                    $("#YorumPanel").html(html);
+                    $("#detay").append(uzunluk);
+
+
+                }
+
+            });
+
+        });
+
+        
+
+    });
+
+
+
+    function Sil(YorumID) {
+
+
+        bootbox.confirm({
+            title: "Makale Sil",
+            message: "Makaleyi silmek istediğinize emin misiniz?",
+            buttons: {
+                cancel: {
+                    label: '<i class="fa fa-times"></i> Geri Dön'
+                },
+                confirm: {
+                    label: '<i class="fa fa-check"></i> Sil'
+                }
+            },
+            callback: function (result) {
+                console.log('This was logged in the callback: ' + result);
+
+
+                if (result == true) {
+
+                    var YorumID = YorumID;
+                    console.log(YorumID);
+                    $.ajax({
+                        url: '/Admin/YorumDelete',
+                        type: "GET",
+                        dataType: "json",
+                        data: { YorumID: YorumID },
+                        success: function () {
+                            location.reload();
+                        }
+                    });
+                }
+            }
+
+        });
+    }
+
+</script>

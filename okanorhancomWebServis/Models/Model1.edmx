@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="okanorhancomBlogDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Dosyalar">
+          <Key>
+            <PropertyRef Name="DosyaID" />
+          </Key>
+          <Property Name="DosyaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DosyaPath" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Kariyer">
+          <Key>
+            <PropertyRef Name="KariyerID" />
+          </Key>
+          <Property Name="KariyerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IcerikTr" Type="nvarchar(max)" />
+          <Property Name="IcerikEn" Type="nvarchar(max)" />
+          <Property Name="BaslikTr" Type="nvarchar" MaxLength="50" />
+          <Property Name="BaslikEn" Type="nvarchar" MaxLength="50" />
+          <Property Name="Aktif" Type="bit" />
+        </EntityType>
+        <EntityType Name="Makale">
+          <Key>
+            <PropertyRef Name="MakaleID" />
+          </Key>
+          <Property Name="MakaleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KisaIcerikTr" Type="nvarchar(max)" />
+          <Property Name="KisaIcerikEn" Type="nvarchar(max)" />
+          <Property Name="IcerikTr" Type="nvarchar(max)" />
+          <Property Name="IcerikEn" Type="nvarchar(max)" />
+          <Property Name="Image" Type="nvarchar(max)" />
+          <Property Name="Tarih" Type="datetime" />
+          <Property Name="Aktif" Type="bit" />
+          <Property Name="MakaleYayinSira" Type="int" />
+          <Property Name="RouteTr" Type="nvarchar" MaxLength="50" />
+          <Property Name="RouteEn" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Uye">
+          <Key>
+            <PropertyRef Name="KayitID" />
+          </Key>
+          <Property Name="KayitID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sifre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Yetki" Type="int" />
+          <Property Name="Ad" Type="nvarchar" MaxLength="50" />
+          <Property Name="Soyad" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Aktif" Type="bit" />
+          <Property Name="Image" Type="nvarchar" MaxLength="500" />
+          <Property Name="Yas" Type="nvarchar" MaxLength="50" />
+          <Property Name="Adres" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Yeteneklerim">
+          <Key>
+            <PropertyRef Name="YetenekID" />
+          </Key>
+          <Property Name="YetenekID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Yetenek" Type="nvarchar" MaxLength="50" />
+          <Property Name="YetenekYuzde" Type="int" />
+          <Property Name="Aktif" Type="bit" />
+        </EntityType>
+        <EntityType Name="Yorumlar">
+          <Key>
+            <PropertyRef Name="YorumID" />
+          </Key>
+          <Property Name="YorumID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tarih" Type="datetime" />
+          <Property Name="Baslik" Type="nvarchar(max)" />
+          <Property Name="Yorum" Type="nvarchar(max)" />
+          <Property Name="MakaleID" Type="int" />
+          <Property Name="Aktif" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="okanorhancomBlogDBModelStoreContainer">
+          <EntitySet Name="Dosyalar" EntityType="Self.Dosyalar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kariyer" EntityType="Self.Kariyer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Makale" EntityType="Self.Makale" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Uye" EntityType="Self.Uye" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yeteneklerim" EntityType="Self.Yeteneklerim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yorumlar" EntityType="Self.Yorumlar" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="okanorhancomBlogDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Dosyalar">
+          <Key>
+            <PropertyRef Name="DosyaID" />
+          </Key>
+          <Property Name="DosyaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DosyaPath" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Kariyer">
+          <Key>
+            <PropertyRef Name="KariyerID" />
+          </Key>
+          <Property Name="KariyerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IcerikTr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IcerikEn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BaslikTr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BaslikEn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Aktif" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Makale">
+          <Key>
+            <PropertyRef Name="MakaleID" />
+          </Key>
+          <Property Name="MakaleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KisaIcerikTr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="KisaIcerikEn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IcerikTr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IcerikEn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
+          <Property Name="Aktif" Type="Boolean" />
+          <Property Name="MakaleYayinSira" Type="Int32" />
+          <Property Name="RouteTr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RouteEn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Uye">
+          <Key>
+            <PropertyRef Name="KayitID" />
+          </Key>
+          <Property Name="KayitID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Yetki" Type="Int32" />
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Aktif" Type="Boolean" />
+          <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Yas" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Adres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Yeteneklerim">
+          <Key>
+            <PropertyRef Name="YetenekID" />
+          </Key>
+          <Property Name="YetenekID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Yetenek" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YetenekYuzde" Type="Int32" />
+          <Property Name="Aktif" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Yorumlar">
+          <Key>
+            <PropertyRef Name="YorumID" />
+          </Key>
+          <Property Name="YorumID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
+          <Property Name="Baslik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Yorum" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MakaleID" Type="Int32" />
+          <Property Name="Aktif" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="okanorhancomBlogDB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Dosyalar" EntityType="Self.Dosyalar" />
+          <EntitySet Name="Kariyer" EntityType="Self.Kariyer" />
+          <EntitySet Name="Makale" EntityType="Self.Makale" />
+          <EntitySet Name="Uye" EntityType="Self.Uye" />
+          <EntitySet Name="Yeteneklerim" EntityType="Self.Yeteneklerim" />
+          <EntitySet Name="Yorumlar" EntityType="Self.Yorumlar" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="okanorhancomBlogDBModelStoreContainer" CdmEntityContainer="okanorhancomBlogDB">
+          <EntitySetMapping Name="Dosyalar">
+            <EntityTypeMapping TypeName="okanorhancomBlogDBModel.Dosyalar">
+              <MappingFragment StoreEntitySet="Dosyalar">
+                <ScalarProperty Name="DosyaID" ColumnName="DosyaID" />
+                <ScalarProperty Name="DosyaPath" ColumnName="DosyaPath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kariyer">
+            <EntityTypeMapping TypeName="okanorhancomBlogDBModel.Kariyer">
+              <MappingFragment StoreEntitySet="Kariyer">
+                <ScalarProperty Name="KariyerID" ColumnName="KariyerID" />
+                <ScalarProperty Name="IcerikTr" ColumnName="IcerikTr" />
+                <ScalarProperty Name="IcerikEn" ColumnName="IcerikEn" />
+                <ScalarProperty Name="BaslikTr" ColumnName="BaslikTr" />
+                <ScalarProperty Name="BaslikEn" ColumnName="BaslikEn" />
+                <ScalarProperty Name="Aktif" ColumnName="Aktif" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Makale">
+            <EntityTypeMapping TypeName="okanorhancomBlogDBModel.Makale">
+              <MappingFragment StoreEntitySet="Makale">
+                <ScalarProperty Name="RouteEn" ColumnName="RouteEn" />
+                <ScalarProperty Name="RouteTr" ColumnName="RouteTr" />
+                <ScalarProperty Name="MakaleID" ColumnName="MakaleID" />
+                <ScalarProperty Name="KisaIcerikTr" ColumnName="KisaIcerikTr" />
+                <ScalarProperty Name="KisaIcerikEn" ColumnName="KisaIcerikEn" />
+                <ScalarProperty Name="IcerikTr" ColumnName="IcerikTr" />
+                <ScalarProperty Name="IcerikEn" ColumnName="IcerikEn" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Aktif" ColumnName="Aktif" />
+                <ScalarProperty Name="MakaleYayinSira" ColumnName="MakaleYayinSira" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uye">
+            <EntityTypeMapping TypeName="okanorhancomBlogDBModel.Uye">
+              <MappingFragment StoreEntitySet="Uye">
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Yas" ColumnName="Yas" />
+                <ScalarProperty Name="KayitID" ColumnName="KayitID" />
+                <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="Yetki" ColumnName="Yetki" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Aktif" ColumnName="Aktif" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yeteneklerim">
+            <EntityTypeMapping TypeName="okanorhancomBlogDBModel.Yeteneklerim">
+              <MappingFragment StoreEntitySet="Yeteneklerim">
+                <ScalarProperty Name="YetenekID" ColumnName="YetenekID" />
+                <ScalarProperty Name="Yetenek" ColumnName="Yetenek" />
+                <ScalarProperty Name="YetenekYuzde" ColumnName="YetenekYuzde" />
+                <ScalarProperty Name="Aktif" ColumnName="Aktif" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yorumlar">
+            <EntityTypeMapping TypeName="okanorhancomBlogDBModel.Yorumlar">
+              <MappingFragment StoreEntitySet="Yorumlar">
+                <ScalarProperty Name="Aktif" ColumnName="Aktif" />
+                <ScalarProperty Name="YorumID" ColumnName="YorumID" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Baslik" ColumnName="Baslik" />
+                <ScalarProperty Name="Yorum" ColumnName="Yorum" />
+                <ScalarProperty Name="MakaleID" ColumnName="MakaleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

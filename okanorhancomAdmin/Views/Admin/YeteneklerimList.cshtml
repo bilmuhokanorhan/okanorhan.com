@@ -1,0 +1,86 @@
+﻿@model IEnumerable<okanorhancomAdmin.AdminWebServis.Yeteneklerim>
+
+@{
+    ViewBag.Title = "YeteneklerimList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int count = 1;
+}
+
+<br />
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Yetenek Listesi</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table class="table table-bordered">
+
+                        <tr>
+                            <th style="width: 10px">Sira</th>
+                            <th>Yetetenek</th>
+                            <th>Durum</th>
+                            <th style="width: 120px">Yuzde</th>
+                            <th style="width: 120px">Yayın Durumu</th>
+                            <th style="width: 80px"></th>
+                        </tr>
+                        @foreach (var item in Model)
+
+
+                        {
+                            <tr>
+
+                                <td>@count</td>
+                                <td>@item.Yetenek</td>
+                                <td>
+                                    <div class="progress progress-xs progress-striped active">
+                                        <div class="progress-bar progress-bar-success" style="width: @item.YetenekYuzde%"> 
+
+
+                                        </div>
+                                    </div>
+
+
+
+                                </td>
+                                <td>
+                                    <span>@item.YetenekYuzde</span>
+                                </td>
+                                <td>
+                                    @if (@item.Aktif == true)
+                                    {
+                                        <center>
+                                            <span class="label label-success">Aktif</span>
+                                        </center>
+                                    }
+                                    else
+                                    { <center>
+                                    <span class="label label-danger">Pasif</span>
+                                </center>
+
+                                    }
+                                </td>
+                                <td>
+                                    <a href="../Admin/YeteneklerimDelete?YetenekID=@item.YetenekID"><i style="color:red" class="fa fa-times fa-2x" aria-hidden="true"></i></a>
+                                    <a href="../Admin/YeteneklerimEdit?YetenekID=@item.YetenekID"><i style="color:sandybrown; margin-left:5px;" class="fa fa-edit fa-2x" aria-hidden="true"></i></a>
+                                </td>
+                            </tr>
+                            count += 1;
+
+                        }
+                    </table>
+                </div>
+                <div class="box-footer clearfix">
+                    <ul class="pagination pagination-sm no-margin pull-right">
+                        <li><a href="#">&laquo;</a></li>
+                        <li><a href="#">1</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

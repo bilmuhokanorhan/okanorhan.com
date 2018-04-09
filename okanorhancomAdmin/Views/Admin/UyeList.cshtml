@@ -1,0 +1,93 @@
+﻿@model IEnumerable<okanorhancomAdmin.AdminWebServis.Uye>
+
+@{
+    ViewBag.Title = "UyeList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int count = 1;
+}
+
+<br />
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Üye Listesi</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table class="table table-bordered">
+
+                        <tr>
+                            <th style="width: 10px">Sira</th>
+                            <th>Ad Soyad</th>
+                            <th>KullanıcıAdı</th>
+                            <th>Şifre</th>
+                            <th>Email</th>
+                            <th>Resim</th>
+                            <th>Yetki</th>
+                            <th style="width: 120px">Üyelik Durumu</th>
+                            <th style="width: 80px"></th>
+                        </tr>
+                        @foreach (var item in Model)
+
+
+                        {
+                            <tr>
+
+                                <td>@count</td>
+                                <td>@item.Ad @item.Soyad</td>
+                                <td>@item.KullaniciAdi</td>
+                                <td>@item.Sifre</td>
+                                <td>@item.Email</td>
+                                <td><img src="@item.Image" width="40" height="40" /></td>
+                                <td>
+                                @if (@item.Yetki == 1)
+                                {
+                                    <center>
+                                        <span class="label label-success">Aktif</span>
+                                    </center>
+                                }
+                                else
+                                { <center>
+                                    <span class="label label-danger">Pasif</span>
+                                </center>
+
+                                }</td>
+
+
+                                <td>
+                                    @if (@item.Aktif == true)
+                                    {
+                                        <center>
+                                            <span class="label label-success">Aktif</span>
+                                        </center>
+                                    }
+                                    else
+                                    { <center>
+                                    <span class="label label-danger">Pasif</span>
+                                </center>
+
+                                    }
+                                </td>
+                                <td>
+                                    <a href="../Admin/UyeDelete?KayitID=@item.KayitID"><i style="color:red" class="fa fa-times fa-2x" aria-hidden="true"></i></a>
+                                    <a href="../Admin/UyeEdit?KayitID=@item.KayitID"><i style="color:sandybrown; margin-left:5px;" class="fa fa-edit fa-2x" aria-hidden="true"></i></a>
+                                </td>
+                            </tr>
+                            count += 1;
+
+                        }
+                    </table>
+                </div>
+                <div class="box-footer clearfix">
+                    <ul class="pagination pagination-sm no-margin pull-right">
+                        <li><a href="#">&laquo;</a></li>
+                        <li><a href="#">1</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

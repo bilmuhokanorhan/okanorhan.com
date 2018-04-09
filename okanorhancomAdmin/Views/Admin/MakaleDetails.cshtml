@@ -1,0 +1,115 @@
+﻿@model okanorhancomAdmin.AdminWebServis.Makale
+@{
+    ViewBag.Title = "MakaleDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<section class="content">
+    <div class="row">
+
+
+        <div class="col-md-2">
+            <img src="@Model.Image" width="120" height="120" />
+            </div>
+            <div class="col-md-10">
+
+                <div class="form-group">
+                    <div class="form-group">
+                        <label>Makale Kısa İçerik Tr</label>
+                        <input class="form-control" placeholder="Kariyer Başlığı Giriniz" value="@Model.KisaIcerikTr" id="KisaIcerikTr" name="KisaIcerikTr" required="required" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>Makale Kısa İçerik En</label>
+                        <input class="form-control" placeholder="Kariyer Başlığı Giriniz" value="@Model.KisaIcerikEn" id="KisaIcerikEn" name="KisaIcerikEn" required="required" disabled>
+                    </div>
+
+                </div>
+
+                <div class="box box-info">
+                    <div class="box-header">
+                        <h3 class="box-title">
+                            İçerik Tr
+
+                        </h3>
+                        <!-- tools box -->
+                        <div class="pull-right box-tools">
+                            <button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip"
+                                    title="Kapat">
+                                <i class="fa fa-minus"></i>
+                            </button>
+
+                        </div>
+                        <!-- /. tools -->
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body pad">
+                        @Html.Raw(@Model.IcerikTr)
+
+
+                    </div>
+                </div>
+                <!-- /.box -->
+                <div class="box box-info">
+                    <div class="box-header">
+                        <h3 class="box-title">
+                            İçerik En
+                        </h3>
+                        <!-- tools box -->
+                        <div class="pull-right box-tools">
+                            <button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip"
+                                    title="Kapat">
+                                <i class="fa fa-minus"></i>
+                            </button>
+
+                        </div>
+                        <!-- /. tools -->
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body pad">
+
+                        @Html.Raw(@Model.IcerikEn)
+
+
+
+
+                    </div>
+                </div>
+                <label>Yayın  Durumu</label>
+                <select class="form-control select2 b" id="Aktif" name="Aktif" style="width: 100%;">
+                    <option selected="selected">@Model.Aktif</option>
+
+
+                </select>
+                <br />
+                <div class="form-group">
+                    <label>Makale Sıra No</label>
+                    <select class="form-control select2 select2-hidden-accessible a" id="MakaleSiraNo" name="MakaleYayinSira" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                        <option selected="selected">@Model.MakaleYayinSira</option>
+
+                    </select>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+            <!-- /.col-->
+        </div>
+    <!-- ./row -->
+</section>
+
+

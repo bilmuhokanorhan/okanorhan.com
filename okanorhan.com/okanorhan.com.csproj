@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5F768391-F579-452B-9ACD-374AF598F2A6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>okanorhan.com</RootNamespace>
+    <AssemblyName>okanorhan.com</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HomePageView.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WebServices\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\demo-page.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\hover-min.css" />
+    <Content Include="Content\hover.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Image\bakim-asamasi-1.png" />
+    <Content Include="Image\FB_IMG_1515139494106.jpg" />
+    <Content Include="Image\icon.png" />
+    <Content Include="Image\Kariyer.net_.jpg" />
+    <Content Include="Image\NavbarBackImage.jpg" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\hover.scss" />
+    <Content Include="Content\_hacks.scss" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Contact.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Web References\WebServices\Dosyalar.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebServices\Kariyer.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebServices\Makale.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebServices\MakaleYorumView.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\WebServices\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Web References\WebServices\Uye.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\WebServices\WebService.disco" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="scss\effects\2d-transitions\_backward.scss" />
+    <Content Include="scss\effects\2d-transitions\_bob.scss" />
+    <Content Include="scss\effects\2d-transitions\_bounce-in.scss" />
+    <Content Include="scss\effects\2d-transitions\_bounce-out.scss" />
+    <Content Include="scss\effects\2d-transitions\_buzz-out.scss" />
+    <Content Include="scss\effects\2d-transitions\_buzz.scss" />
+    <Content Include="scss\effects\2d-transitions\_float.scss" />
+    <Content Include="scss\effects\2d-transitions\_forward.scss" />
+    <Content Include="scss\effects\2d-transitions\_grow-rotate.scss" />
+    <Content Include="scss\effects\2d-transitions\_grow.scss" />
+    <Content Include="scss\effects\2d-transitions\_hang.scss" />
+    <Content Include="scss\effects\2d-transitions\_pop.scss" />
+    <Content Include="scss\effects\2d-transitions\_pulse-grow.scss" />
+    <Content Include="scss\effects\2d-transitions\_pulse-shrink.scss" />
+    <Content Include="scss\effects\2d-transitions\_pulse.scss" />
+    <Content Include="scss\effects\2d-transitions\_push.scss" />
+    <Content Include="scss\effects\2d-transitions\_rotate.scss" />
+    <Content Include="scss\effects\2d-transitions\_shrink.scss" />
+    <Content Include="scss\effects\2d-transitions\_sink.scss" />
+    <Content Include="scss\effects\2d-transitions\_skew-backward.scss" />
+    <Content Include="scss\effects\2d-transitions\_skew-forward.scss" />
+    <Content Include="scss\effects\2d-transitions\_skew.scss" />
+    <Content Include="scss\effects\2d-transitions\_wobble-bottom.scss" />
+    <Content Include="scss\effects\2d-transitions\_wobble-horizontal.scss" />
+    <Content Include="scss\effects\2d-transitions\_wobble-skew.scss" />
+    <Content Include="scss\effects\2d-transitions\_wobble-to-bottom-right.scss" />
+    <Content Include="scss\effects\2d-transitions\_wobble-to-top-right.scss" />
+    <Content Include="scss\effects\2d-transitions\_wobble-top.scss" />
+    <Content Include="scss\effects\2d-transitions\_wobble-vertical.scss" />
+    <Content Include="scss\effects\background-transitions\_back-pulse.scss" />
+    <Content Include="scss\effects\background-transitions\_bounce-to-bottom.scss" />
+    <Content Include="scss\effects\background-transitions\_bounce-to-left.scss" />
+    <Content Include="scss\effects\background-transitions\_bounce-to-right.scss" />
+    <Content Include="scss\effects\background-transitions\_bounce-to-top.scss" />
+    <Content Include="scss\effects\background-transitions\_fade.scss" />
+    <Content Include="scss\effects\background-transitions\_radial-in.scss" />
+    <Content Include="scss\effects\background-transitions\_radial-out.scss" />
+    <Content Include="scss\effects\background-transitions\_rectangle-in.scss" />
+    <Content Include="scss\effects\background-transitions\_rectangle-out.scss" />
+    <Content Include="scss\effects\background-transitions\_shutter-in-horizontal.scss" />
+    <Content Include="scss\effects\background-transitions\_shutter-in-vertical.scss" />
+    <Content Include="scss\effects\background-transitions\_shutter-out-horizontal.scss" />
+    <Content Include="scss\effects\background-transitions\_shutter-out-vertical.scss" />
+    <Content Include="scss\effects\background-transitions\_sweep-to-bottom.scss" />
+    <Content Include="scss\effects\background-transitions\_sweep-to-left.scss" />
+    <Content Include="scss\effects\background-transitions\_sweep-to-right.scss" />
+    <Content Include="scss\effects\background-transitions\_sweep-to-top.scss" />
+    <Content Include="scss\effects\border-transitions\_border-fade.scss" />
+    <Content Include="scss\effects\border-transitions\_hollow.scss" />
+    <Content Include="scss\effects\border-transitions\_outline-in.scss" />
+    <Content Include="scss\effects\border-transitions\_outline-out.scss" />
+    <Content Include="scss\effects\border-transitions\_overline-from-center.scss" />
+    <Content Include="scss\effects\border-transitions\_overline-from-left.scss" />
+    <Content Include="scss\effects\border-transitions\_overline-from-right.scss" />
+    <Content Include="scss\effects\border-transitions\_overline-reveal.scss" />
+    <Content Include="scss\effects\border-transitions\_reveal.scss" />
+    <Content Include="scss\effects\border-transitions\_ripple-in.scss" />
+    <Content Include="scss\effects\border-transitions\_ripple-out.scss" />
+    <Content Include="scss\effects\border-transitions\_round-corners.scss" />
+    <Content Include="scss\effects\border-transitions\_trim.scss" />
+    <Content Include="scss\effects\border-transitions\_underline-from-center.scss" />
+    <Content Include="scss\effects\border-transitions\_underline-from-left.scss" />
+    <Content Include="scss\effects\border-transitions\_underline-from-right.scss" />
+    <Content Include="scss\effects\border-transitions\_underline-reveal.scss" />
+    <Content Include="scss\effects\curls\_curl-bottom-left.scss" />
+    <Content Include="scss\effects\curls\_curl-bottom-right.scss" />
+    <Content Include="scss\effects\curls\_curl-top-left.scss" />
+    <Content Include="scss\effects\curls\_curl-top-right.scss" />
+    <Content Include="scss\effects\icons\_icon-back.scss" />
+    <Content Include="scss\effects\icons\_icon-bob.scss" />
+    <Content Include="scss\effects\icons\_icon-bounce-out.scss" />
+    <Content Include="scss\effects\icons\_icon-bounce.scss" />
+    <Content Include="scss\effects\icons\_icon-buzz-out.scss" />
+    <Content Include="scss\effects\icons\_icon-buzz.scss" />
+    <Content Include="scss\effects\icons\_icon-down.scss" />
+    <Content Include="scss\effects\icons\_icon-drop.scss" />
+    <Content Include="scss\effects\icons\_icon-fade.scss" />
+    <Content Include="scss\effects\icons\_icon-float-away.scss" />
+    <Content Include="scss\effects\icons\_icon-float.scss" />
+    <Content Include="scss\effects\icons\_icon-forward.scss" />
+    <Content Include="scss\effects\icons\_icon-grow-rotate.scss" />
+    <Content Include="scss\effects\icons\_icon-grow.scss" />
+    <Content Include="scss\effects\icons\_icon-hang.scss" />
+    <Content Include="scss\effects\icons\_icon-pop.scss" />
+    <Content Include="scss\effects\icons\_icon-pulse-grow.scss" />
+    <Content Include="scss\effects\icons\_icon-pulse-shrink.scss" />
+    <Content Include="scss\effects\icons\_icon-pulse.scss" />
+    <Content Include="scss\effects\icons\_icon-push.scss" />
+    <Content Include="scss\effects\icons\_icon-rotate.scss" />
+    <Content Include="scss\effects\icons\_icon-shrink.scss" />
+    <Content Include="scss\effects\icons\_icon-sink-away.scss" />
+    <Content Include="scss\effects\icons\_icon-sink.scss" />
+    <Content Include="scss\effects\icons\_icon-spin.scss" />
+    <Content Include="scss\effects\icons\_icon-up.scss" />
+    <Content Include="scss\effects\icons\_icon-wobble-horizontal.scss" />
+    <Content Include="scss\effects\icons\_icon-wobble-vertical.scss" />
+    <Content Include="scss\effects\shadow-and-glow-transitions\_box-shadow-inset.scss" />
+    <Content Include="scss\effects\shadow-and-glow-transitions\_box-shadow-outset.scss" />
+    <Content Include="scss\effects\shadow-and-glow-transitions\_float-shadow.scss" />
+    <Content Include="scss\effects\shadow-and-glow-transitions\_glow.scss" />
+    <Content Include="scss\effects\shadow-and-glow-transitions\_grow-shadow.scss" />
+    <Content Include="scss\effects\shadow-and-glow-transitions\_shadow-radial.scss" />
+    <Content Include="scss\effects\shadow-and-glow-transitions\_shadow.scss" />
+    <Content Include="scss\effects\speech-bubbles\_bubble-bottom.scss" />
+    <Content Include="scss\effects\speech-bubbles\_bubble-float-bottom.scss" />
+    <Content Include="scss\effects\speech-bubbles\_bubble-float-left.scss" />
+    <Content Include="scss\effects\speech-bubbles\_bubble-float-right.scss" />
+    <Content Include="scss\effects\speech-bubbles\_bubble-float-top.scss" />
+    <Content Include="scss\effects\speech-bubbles\_bubble-left.scss" />
+    <Content Include="scss\effects\speech-bubbles\_bubble-right.scss" />
+    <Content Include="scss\effects\speech-bubbles\_bubble-top.scss" />
+    <Content Include="scss\hover.scss" />
+    <Content Include="scss\_hacks.scss" />
+    <Content Include="scss\_mixins.scss" />
+    <Content Include="scss\_options.scss" />
+    <Content Include="Views\Home\Blog.cshtml" />
+    <None Include="Web References\WebServices\WebService.wsdl" />
+    <Content Include="Web References\WebServices\Yeteneklerim.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebServices\Yorumlar.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Blog\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:54621/WebService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebServices\</RelPath>
+      <UpdateFromURL>http://localhost:54621/WebService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>okanorhan_com_WebServices_WebService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>64720</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:64720/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

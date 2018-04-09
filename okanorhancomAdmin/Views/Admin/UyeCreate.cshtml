@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "UyeCreate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<br />
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <form method="post" action="../Admin/UyeCreate" enctype="multipart/form-data">
+                <div class="form-group">
+                    <div class="form-group">
+                        <label>Ad</label>
+                        <input class="form-control" placeholder="Adınızı  Giriniz" name="Ad" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label>Soyad</label>
+                        <input class="form-control" placeholder="Soyadınızı Giriniz" name="Soyad" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label>KullanıcıAdı</label>
+                        <input class="form-control" placeholder="KullanıcıAdınızı  Giriniz" name="KullaniciAdi" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label>Şifre</label>
+                        <input class="form-control" placeholder="Şifre  Giriniz" name="Sifre" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input class="form-control" placeholder="Email  Giriniz" name="Email" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label>Adres</label>
+                        <input class="form-control" placeholder="Adres  Giriniz" name="Adres" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label>Telefon</label>
+                        <input class="form-control" placeholder="Telefon  Giriniz" name="Telefon" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label>Yaş</label>
+                        <input class="form-control" placeholder="Yaş  Giriniz" name="Yas" required="required">
+                    </div>
+                    <label>Yetki </label>
+                    <select class="form-control select2" name="Yetki" style="width: 100%;">
+                        <option value="1" selected="selected">Aktif</option>
+                        <option value="0">Pasif</option>
+
+                    </select>
+                    <br />
+                    <label>Yayın  Durumu</label>
+                    <select class="form-control select2" name="Aktif" style="width: 100%;">
+                        <option value="1" selected="selected">True</option>
+                        <option value="0">False</option>
+
+                    </select>
+                    <br />
+                    <label>Resim </label>
+
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button id="fake-file-button-browse" type="button" class="btn btn-default">
+                                <span class="glyphicon glyphicon-file"></span>
+                            </button>
+                        </span>
+                        <input type="file" name="Image" id="files-input-upload" style="display:none" required="required">
+                        <input type="text" id="fake-file-input-name" disabled="disabled" placeholder="File not selected" class="form-control">
+                        <span class="input-group-btn">
+                           
+                        </span>
+                    </div>
+                    <script type="text/javascript">
+                        // Fake file upload
+                        document.getElementById('fake-file-button-browse').addEventListener('click', function () {
+                            document.getElementById('files-input-upload').click();
+                        });
+
+                        document.getElementById('files-input-upload').addEventListener('change', function () {
+                            document.getElementById('fake-file-input-name').value = this.value;
+
+                            document.getElementById('fake-file-button-upload').removeAttribute('disabled');
+                        });
+                    </script>
+                </div>
+
+            <br />
+                <div class="form-group">
+                    <button style="float:right;" type="submit" class="btn btn-primary">Ekle</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.col-->
+    </div>
+    <!-- ./row -->
+</section>
+
+

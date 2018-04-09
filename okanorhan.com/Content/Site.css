@@ -1,0 +1,360 @@
+﻿body {
+    padding: 0;
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    background-color: #EFEFEF !important;
+}
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+.maincontainer {
+    margin: 0 auto;
+    max-width: 1349px;
+    min-width: 1080px;
+}
+.navbar {
+    margin: 0 auto;
+    max-width: 1349px;
+    min-width: 1349px;
+    position: fixed;
+    top: 0;
+    background-color: white;
+    z-index:2;
+}
+.navbar#show{
+
+}
+.navbar ul{
+}
+    .navbar ul li {
+        float: left;
+        right: 0;
+        margin-left: 30px;
+        font-size: 20px;
+        list-style-type: none;
+    }
+
+        .navbar ul li a {
+            color: #3d4451;
+        }
+
+.hovereffect {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px transparent;
+    position: relative;
+    overflow: hidden;
+    
+}
+[class^="hvr-"] {
+    padding: 0.5em;
+    cursor: pointer;
+    text-decoration: none;
+    color: #0f9e5e;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-font-smoothing: antialiased;
+}
+.hovereffect:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    right: 100%;
+    bottom: 0;
+    background: #2098D1;
+    height: 4px;
+    -webkit-transition-property: right;
+    transition-property: right;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+.Merhaba {
+    width: 0;
+    border-top: 12px solid #07CB79;
+    border-right: 12px solid transparent;
+    left: 10px;
+    position: relative;
+}
+.kutu {
+    width: 70%;
+    background-color: white;
+    height: 450px;
+    margin: auto;
+    position: relative;
+    bottom: 300px;
+    margin: 0 auto;
+    max-width: 1349px;
+    min-width: 950px;
+}
+.kutusol {
+    width: 45%;
+    height: 450px;
+    float: left;
+}
+.kutusag {
+    width: 55%;
+    height: 450px;
+    float:left;
+}
+
+.sagicerik li{
+    list-style-type:none;
+    margin-left:-40px;
+}
+    .sagicerik li strong{
+        line-height:2.5;
+        width:20px;
+    }
+    .sagicerik li span {
+        color: #757575;
+        margin-left:130px;
+    }
+
+.kutualt {
+    width: 70%;
+    background-color: #07CB79;
+    height: 100px;
+    position: relative;
+    bottom: 300px;
+    margin: 0 auto;
+    max-width: 1349px;
+    min-width: 950px;
+}
+
+.yeteneklerim {
+    width: 70%;
+    height:400px;
+    margin: auto;
+    background-color: white;
+    padding-top: 20px;
+    position: relative;
+    bottom: 175px;
+}
+
+.yeteneklerimkutu{
+    width:48%;
+    float:left;
+    margin-left:15px;
+    margin-top:-30px;
+}
+    .yeteneklerimkutu p {
+        position: relative;
+        top: 12px;
+    }
+.yeteneklerimbar {
+    background: #CDF5E4;
+    text-align: right;
+    padding-right: 2px;
+    margin-bottom: 20px;
+    color: white;
+}
+/*İş Deneyeimler*/
+.zaman {
+    position: relative;
+    margin: 0 auto;
+    max-width: 906px;
+    min-width: 906px;
+    bottom: 70px;
+}
+
+    .zaman::after {
+        content: '';
+        position: absolute;
+        width: 6px;
+        background-color: white;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -3px;
+    }
+
+.deneyimkutu {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+    .deneyimkutu::after {
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        right: -17px;
+        background-color: white;
+        border: 4px solid #0f9e5e;
+        top: 90px;
+        border-radius: 50%;
+        z-index: 1;
+    }
+
+.left {
+    left: -80px;
+}
+
+.right {
+    left: 50%;
+}
+
+.left::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 100px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid white;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent white;
+}
+
+.right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 95px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+}
+
+.right::after {
+    left: -16px;
+}
+
+.content {
+    padding: 20px 30px;
+    background-color: white;
+    position: relative;
+    border-radius: 75px;
+}
+
+
+/*İletişim*/
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
+.iletisim {
+    width: 70%;
+    margin: 0 auto;
+    max-width: 1349px;
+    min-width: 950px;
+    bottom: -73px;
+    position: relative;
+}
+.MesajContainer {
+    width:45%;
+    margin:auto;
+    border-radius: 5px;
+    background-color: white;
+    padding: 20px;
+    float:left;
+    height:500px;
+}
+
+    .MesajContainer ul li {
+        list-style-type: none;
+        line-height: 2.4;
+        margin-left: -40px;
+    }
+    /*İcons*/
+.fa {
+    padding: 10px;
+    font-size: 30px;
+    width: 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 25px 5px;
+    border-radius: 50%;
+}
+
+    .fa:hover {
+        opacity: 0.7;
+    }
+
+.fa-facebook {
+    background: none !important;
+    color: white !important;
+}
+
+.fa-twitter {
+    background: none !important;
+    color: white !important;
+}
+
+.fa-google {
+    background: none !important;
+    color: white !important;
+}
+
+.fa-linkedin {
+    background: none !important;
+    color: white !important;
+}
+
+
+
+.fa-instagram {
+    background: none !important;
+    color: white !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

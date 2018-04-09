@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "YeteneklerimCreate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<br />
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <form method="post" action="../Admin/YeteneklerimCreate" enctype="multipart/form-data">
+                <div class="form-group">
+                    <div class="form-group">
+                        <label>Yetenek Adı</label>
+                        <input class="form-control" placeholder="Yetenek Adını Giriniz" name="Yetenek" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label>Yetenek Adı</label>
+                        <input class="form-control" type="number" placeholder="Yetenek Yüzdesini Giriniz" name="Yuzde" required="required">
+                    </div>
+                    <label>Yayın  Durumu</label>
+                    <select class="form-control select2" name="Aktif" style="width: 100%;">
+                        <option value="1" selected="selected">True</option>
+                        <option value="0">False</option>
+
+                    </select>
+                </div>
+
+              
+                <div class="form-group">
+                    <button style="float:right;" type="submit" class="btn btn-primary">Ekle</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.col-->
+    </div>
+    <!-- ./row -->
+</section>

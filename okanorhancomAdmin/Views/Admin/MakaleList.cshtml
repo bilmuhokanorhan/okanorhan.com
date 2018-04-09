@@ -1,0 +1,127 @@
+﻿@model IEnumerable<okanorhancomAdmin.AdminWebServis.Makale>
+
+@{
+    ViewBag.Title = "MakaleList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int count = 1;
+}
+
+
+
+<br />
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Makale Listesi</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="MakaleList" class="table table-bordered">
+
+                        <tr>
+                            <th style="width: 10px">Sira</th>
+                            <th>Kısa İçerik</th>
+                            <th style="width: 120px">Yayın Durumu</th>
+                            <th style="width: 120px">Yayın Zamanı</th>
+                            <th style="width: 120px"></th>
+                        </tr>
+                        @foreach (var item in Model)
+
+
+                        {
+                            
+                            <tr id="@item.MakaleID">
+
+                                <td>@count</td>
+                                <td>@item.KisaIcerikTr</td>
+                                <td>
+                                    @if (@item.Aktif == true)
+                                    {
+                                        <center>
+                                            <span class="label label-success">Aktif</span>
+                                        </center>
+                                    }
+                                    else
+                                    { <center>
+                                    <span class="label label-danger">Pasif</span>
+                                </center>
+
+                                    }
+                                </td>
+                                <td>@item.Tarih</td>
+
+                                <td>
+                                    <a id="Sil"  onclick="deneme(@item.MakaleID);" href="#"><i style="color:red" class="fa fa-times fa-2x" aria-hidden="true"></i></a>
+                                    <a id="Detay" href="../Admin/MakaleDetails?MakaleID=@item.MakaleID"><i style="color:cornflowerblue" class="fa fa-eye fa-2x" aria-hidden="true"></i></a>
+                                    <a href="../Admin/MakaleEdit?MakaleID=@item.MakaleID"><i style="color:sandybrown; margin-left:5px;" class="fa fa-edit fa-2x" aria-hidden="true"></i></a>
+                                </td>
+
+                            </tr>
+                            count += 1;
+
+                        }
+                    </table>
+                </div>
+                <div class="box-footer clearfix">
+                    <ul class="pagination pagination-sm no-margin pull-right">
+                        <li><a href="#">&laquo;</a></li>
+                        <li><a href="#">1</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+<script src="~/Scripts/bootbox.min.js"></script>
+<script type="text/javascript">
+    function deneme(MakaleID) {
+
+        bootbox.confirm({
+            title: "Makale Sil",
+            message: "Makaleyi silmek istediğinize emin misiniz?",
+            buttons: {
+                cancel: {
+                    label: '<i class="fa fa-times"></i> Geri Dön'
+                },
+                confirm: {
+                    label: '<i class="fa fa-check"></i> Sil'
+                }
+            },
+            callback: function (result) {
+                console.log('This was logged in the callback: ' + result);
+                var MakaleIDajax = MakaleID
+
+                if (result == true){
+                $.ajax({
+                    url: '/Admin/MakaleDelete',
+                    type: "GET",
+                    dataType: "json",
+                    data: {
+                        MakaleID: MakaleIDajax
+                    },
+                    success: function () {
+
+
+                        $('#' + MakaleIDajax).remove();
+                    }
+
+
+
+
+                    });
+
+                }
+            }
+        });
+
+
+
+    }
+            
+  
+</script>
